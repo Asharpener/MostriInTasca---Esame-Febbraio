@@ -181,7 +181,7 @@ export default function Profile() {
 
                     <Modal
                         animationType="slide"
-                        transparent={true}
+                        transparent={false}
                         visible={modalVisible}
                         onRequestClose={() => {
                             setModalVisible(!modalVisible);
