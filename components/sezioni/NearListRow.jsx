@@ -28,7 +28,7 @@ export function NearListRow(props) {
     );
 
     return (
-        <TouchableOpacity onPress={() => navigation.navigate('VObj', { vobj: item })}>
+        <TouchableOpacity onPress={() => navigation.navigate('VObjD', { vobj: item })}>
             <View style={nearlist.nlElemCont}>
                 <View style={nearlist.nlElemImgCont}>
                     {object == null ? (

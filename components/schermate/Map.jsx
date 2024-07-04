@@ -10,6 +10,7 @@ import { UserContext } from '../../models/UserContext';
 
 import Player from './Player.jsx';
 import VirtualObject from './VirtualObject.jsx';
+import VirtualObjectD from './VirtualObjectD.jsx';
 import * as MarkerElement from '../sezioni/Marker.jsx';
 import NearObjectList from './NearObjectList.jsx';
 import * as VObj from "../RepoAssist/VObjectRepo";
@@ -24,6 +25,7 @@ export default function Map({ navigation }) {
             <Stack.Screen name="Map" component={ShowMap} options={{ headerShown: false }} />
             <Stack.Screen name="Player" component={Player} options={{ title: '' }} />
             <Stack.Screen name="VObj" component={VirtualObject} options={{ title: '' }} />
+            <Stack.Screen name="VObjD" component={VirtualObjectD} options={{ title: '' }} />
             <Stack.Screen name="NearObjectList" component={NearObjectList} options={{ title: 'Oggetti vicini' }} />
         </Stack.Navigator>
     );
@@ -89,7 +91,7 @@ function ShowMap({ navigation }) {
 
     return (
         <SafeAreaView style={{ flex: 1, justifyContent: 'flex-end', marginTop: 40 }}>
-            <MapView style={mapscreen.map} region={region} showsMyLocationButton={true}
+            <MapView style={mapscreen.map} region={region} 
                 showsCompass={true} onRegionCHange={this.handleRegionChanged}>
 
                 {location != null &&
