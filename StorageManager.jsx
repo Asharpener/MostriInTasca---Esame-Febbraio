@@ -89,4 +89,29 @@ export default class StorageManager {
         //console.log("StorageManager // getUser - "+result[0].rows[0].uid);
         return result[0].rows;
     }
+
+    /* CODICE ESAME GIUGNO STAR
+    async createTableOggetti() {
+        const querySQL = "CREATE TABLE IF NOT EXISTS oggetti (id INTEGER PRIMARY KEY, type VARCHAR(100), image TEXT, name VARCHAR(100), level INTEGER, activated BOOLEAN DEFAULT false)";
+        const query = { args: [], sql: querySQL }
+        const result = await this.db.execAsync([query], false)
+        return result
+    }
+
+    async toggleStar(id) {
+        const querySQL = "UPDATE oggetti SET activated = true WHERE id = ?";
+        const query = { args: [id], sql: querySQL };
+        const result = await this.db.execAsync([query], false);
+        console.log("giugno toggle star "+ id);
+        return result;
+    }
+
+    async getActivatedStars() {
+        const querySQL = "SELECT * FROM oggetti WHERE type = 'star' AND activated = true";
+        const query = { args: [], sql: querySQL };
+        const result = await this.db.execAsync([query], false);
+        //console.log(result[0].rows);
+        return result[0].rows;
+    }
+    */
 }

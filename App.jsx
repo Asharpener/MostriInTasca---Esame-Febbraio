@@ -123,6 +123,7 @@ export default function App() {
               <Tab.Screen name="Classifica" initialParams={{ user: user }} component={RankingScreen} options={{ title: 'Classifica', headerShown: false }} />
               <Tab.Screen name="Mappa" initialParams={{ user: user }} component={MapScreen} options={{ headerShown: false }} />
               <Tab.Screen name="Profilo" initialParams={{ user: user }} component={ProfileScreen} options={{ headerShown: false }} />
+              {/*esame giugno-star <Tab.Screen name="Stelle" initialParams={{ user: user }} component={StarList} options={{ headerShown: false }} />*/}
             </Tab.Navigator>
           </NavigationContainer>
         </SafeAreaProvider>

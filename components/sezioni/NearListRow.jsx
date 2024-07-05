@@ -96,7 +96,10 @@ function ObjectInfo(props) {
         case "candy":
             objtype = "Caramella";
             break;
-
+        /*esame giugno-star
+        case "star":
+            objtype = "Stella";
+            break;*/
         default:
             objtype = "Oggetto";
             break;
@@ -129,7 +132,10 @@ function ObjectImage(props) {
             case "candy":
                 pic = require("../../assets/images/default_candy.png");
                 break;
-
+            /*esame giugno-star
+            case "star":   
+                pic = require("../../assets/images/default_star.png");
+                break;*/
             default:
                 pic = require("../../assets/adaptive-icon.png");
                 break;

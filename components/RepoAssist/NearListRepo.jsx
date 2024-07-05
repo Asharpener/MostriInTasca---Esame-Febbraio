@@ -85,17 +85,17 @@ export async function loadPlayerDetails(sid, playerInfo) {
         }
     } else {
         // if yes, check the profile version for the user
-        
+
         user = player[0];
-        
+
         if (user.profileversion != playerInfo.profileversion) {
             // if the profile version is different from the one in the db, get the user from the server and update it in the db
-            
+
             const response = await CommunicationController.getUserById(sid, playerInfo.uid)
-            .catch((error) => {
-                console.log("RankElem - " + error);
-            });
-            
+                .catch((error) => {
+                    console.log("RankElem - " + error);
+                });
+
             let row = await storageManager.updateUser(response.uid, response.name, response.picture, response.profileversion);
 
             if (row[0].error != null || row[0].rowsAffected == 0) {
@@ -108,4 +108,23 @@ export async function loadPlayerDetails(sid, playerInfo) {
             return user;
         }
     }
+
+    /*esame giugno-star
+    export async function loadStarList() {
+    const storageManager = new StorageManager();
+    let objects = await storageManager.getActivatedStars()
+        .catch((error) => {
+            console.log("No star objects found - " + error);
+        });
+    return objects;
+}
+
+export async function toggleUsedStar(sid, id) {
+    const storageManager = new StorageManager();
+    let object = await storageManager.toggleStar(id)
+        .catch((error) => {
+            console.log("No object id found for " + id + " - " + error);
+        });
+    return 1;
+}*/
 }

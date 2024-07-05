@@ -93,6 +93,9 @@ function ObjectAction(props) {
         case "amulet":
             text = "Equipaggiati con un amuleto. Con questa amuleto aumenterai la distanza di visione sulla mappa fino a " + (100 + obj.level) + " metri.";
             break;
+        /*case "star": //esame giugno-star
+                text = "Raccogliendo questa stella otterrai " + obj.level + " punti esperienza.";
+                break;*/
         default:
             text = "Attiva questo oggetto per sfruttare le sue potenzialità."
             break;

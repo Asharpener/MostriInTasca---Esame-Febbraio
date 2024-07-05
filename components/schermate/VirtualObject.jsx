@@ -128,6 +128,35 @@ function ObjectAction(props) {
                 })();
             };
             break;
+        /* esame giugno-star
+        case "star":
+                text = "Raccogliendo questa stella otterrai " + obj.level + " punti esperienza.";
+                btn = "Usa";
+                event = () => {
+                    (async () => {
+                        let action = await activation(user.sid, obj.id);
+                        console.log(action.died);
+                        if (action == false) {
+                            alertMex = "Errore";
+                            alertText = "Si è verificato un errore. Verifica la tua connessione";
+                        } else {
+                            alertMex = "Stella usata!";
+                            alertText = "Ora hai " + action.life + " punti vita e " + action.experience + " punti esperienza";
+                            if (obj.activated == false){ //js forse vuole = e non == ma sono confuso
+                                NearListRepo.toggleUsedStar(user.sid, obj.id);
+                            }
+                            
+                        }
+                        Alert.createAlert(alertMex, alertText, [{
+                            text: "OK", onPress: () => {
+                                navigation.navigate('Map');
+                            }
+                        }]);
+    
+                    })();
+                };
+                break;
+        */
         case "armor":
             text = "Equipaggiati con un'armatura. Con questa armatura aumenterai il numero massimo di punti vita a " + (100 + obj.level) + ".";
             btn = "Equipaggia";

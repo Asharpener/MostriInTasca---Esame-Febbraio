@@ -1,0 +1,9 @@
+checklist non ordinata, ma con le pagine modificate e/o aggiunte durante
+la simulazione giugno-star
+
+StorageManager - createtable e chiamate aggiuntive
+VirtualObject e VirtualObjectD - aggiungere nuovo oggetto. Aggiungerlo anche a ObjectImage
+Marker - log, ObjectImage
+NearListRow- aggiugnere tipo e immagine
+NearListRepo - chiamate a DB per VirtualObject (quando attivato) e per StarList
+App - aggiunta e IMPORT alla barra di navigazione

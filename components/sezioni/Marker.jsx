@@ -17,6 +17,10 @@ export function Virtualobj(props) {
             (async () => {console.log("Marker - " + nlObjectInfo.id);
                 let thisobj = await NearListRepo.loadVObjDetails(sid, nlObjectInfo);
                 setObject(thisobj)
+                /*esame giugno-star
+                if (thisobj.type == "star"){
+                    console.log("Giugno star "+ thisobj.id)
+                }*/
             })();
         }, [sid])
     );
@@ -103,7 +107,10 @@ function ObjectImage(props) {
             case "candy":
                 pic = require("../../assets/images/default_candy.png");
                 break;
-
+            /*esame giugno-star
+            case "star":
+                pic = require("../../assets/images/default_star.png");
+                break;*/
             default:
                 pic = require("../../assets/images/default_player.png");
                 break;
