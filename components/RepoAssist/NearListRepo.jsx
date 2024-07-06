@@ -22,7 +22,48 @@ export async function loadCompleteNearList(sid, lat, lon) {
     }
     return response;
 }
+/*esame febbraio - collected
+export async function loadVObjDetails(sid, vobjInfo) {
+    // check if the object is already in the db
+    const storageManager = new StorageManager();
+    
+    let object = await storageManager.getObjectByID(vobjInfo.id)
+        .catch((error) => {
+            console.log("No object id found for " + vobjInfo.id + " - " + error);
+        });
 
+    if (object.length == 0) {
+        // if not, get the object from the server and insert it in the db
+        const response = await CommunicationController.getObjectById(sid, vobjInfo.id)
+            .catch((error) => {
+                console.log("NearListRepo - " + error);
+            });
+
+        let row = await storageManager.insertObject(response.id, response.type, response.image, response.name, response.level);
+
+        if (row[0].error != null) {
+            console.log("NearListRepo - " + row[0].error);
+        } else {
+            console.log("NearListRepo - Object inserted // " + row);
+            return response;
+        }
+    } else {
+        // if yes, return the object
+        if (vobjInfo.collected == true) {
+            let obj = await storageManager.toggleCollected(id)
+                .catch((error) => {
+                    console.log("No object id found for " + id + " - " + error);
+                });
+            let object = await storageManager.getObjectByID(vobjInfo.id)
+                .catch((error) => {
+                    console.log("No object id found for " + vobjInfo.id + " - " + error);
+                });
+            return object[0];
+        }
+        return object[0];
+    }
+}
+*/
 export async function loadVObjDetails(sid, vobjInfo) {
     // check if the object is already in the db
     const storageManager = new StorageManager();

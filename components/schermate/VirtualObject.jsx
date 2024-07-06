@@ -250,7 +250,16 @@ function ObjectAction(props) {
                 <Text>Questo oggetto è troppo lontano. Avvicinati per attivaarlo</Text>
             </View>
         );
-    } else {
+    } /* esame febbraio - collected
+    else if (obj.activated) {
+        return (
+            <View>
+                <Text style={objscreen.objdesc}>{text}</Text>
+                <Text>Questo mostro è già stato sconfitto</Text>
+            </View>
+        );
+    } */
+        else {
         return (
             <View>
                 <Text style={objscreen.objdesc}>{text}</Text>

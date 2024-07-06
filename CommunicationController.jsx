@@ -103,5 +103,14 @@ export default class CommunicationController {
         const bodyParams = {};
         return await CommunicationController.genericRequest(endPoint, verb, queryParams, bodyParams);
     }
+    /*esame febbraio - collected
+    static async getCollection(sid) {
+        const endPoint = "collection/";
+        const verb = 'GET';
+        const queryParams = { sid: sid};
+        const bodyParams = {};
+        return await CommunicationController.genericRequest(endPoint, verb, queryParams, bodyParams);
+    }
+    */
 
 }
