@@ -12,7 +12,7 @@ export function Virtualobj(props) {
     const sid = props.sid;
     const distance = props.distance;
 
-    useFocusEffect(
+    useFocusEffect( /*Effetto di Messa a Fuoco: Usa useFocusEffect per eseguire un callback asincrono ogni volta che la schermata viene messa a fuoco. Questo callback carica i dettagli dell'oggetto e aggiorna lo stato.*/
         React.useCallback(() =>{
             (async () => {console.log("Marker - " + nlObjectInfo.id);
                 let thisobj = await NearListRepo.loadVObjDetails(sid, nlObjectInfo);
@@ -21,6 +21,15 @@ export function Virtualobj(props) {
                 if (thisobj.type == "star"){
                     console.log("Giugno star "+ thisobj.id)
                 }*/
+                /*if (thisobj.type == "monster"){
+                    console.log("Monster con id:"+ thisobj.id)
+                    if (thisobj.collected == true){
+                        console.log("Mostro già raccolto")
+                    } else {
+                        console.log("Mostro non raccolto")
+                    
+                    }
+                }*/ //<<-- qui è sbagliato perché lo vedrei solo quando lo attivo. devi andare a NearListRow.jsx
             })();
         }, [sid])
     );

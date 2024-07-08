@@ -58,7 +58,7 @@ export default class StorageManager {
 
     // Table create
     async createTableOggetti() {
-        const querySQL = "CREATE TABLE IF NOT EXISTS oggetti (id INTEGER PRIMARY KEY, type VARCHAR(100), image TEXT, name VARCHAR(100), level INTEGER)";
+        const querySQL = "CREATE TABLE IF NOT EXISTS oggetti (id INTEGER PRIMARY KEY, type VARCHAR(100), image TEXT, name VARCHAR(100), level INTEGER, collected BOOLEAN DEFAULT false)";
         const query = { args: [], sql: querySQL }
         const result = await this.db.execAsync([query], false)
         return result
@@ -88,6 +88,14 @@ export default class StorageManager {
         const result = await this.db.execAsync([query], false);
         //console.log("StorageManager // getUser - "+result[0].rows[0].uid);
         return result[0].rows;
+    }
+    
+    async toggleCollected(id) {
+        const querySQL = "UPDATE oggetti SET collected = true WHERE id = ?";
+        const query = { args: [id], sql: querySQL };
+        const result = await this.db.execAsync([query], false);
+        console.log("febbraio toggle collected "+ id);
+        return result;
     }
 
     /* CODICE ESAME FEBBRAIO COLLECTED

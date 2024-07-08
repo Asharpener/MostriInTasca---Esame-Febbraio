@@ -46,11 +46,11 @@ function ShowMap({ navigation }) {
     const [vobjnearlist, setNearList] = useState([]);
     const [playernearlist, setPlayerNearList] = useState([]);
 
-    useFocusEffect(
+    useFocusEffect( /*useFocusEffect per caricare dati quando la mappa viene visualizzata. Carica gli oggetti e i giocatori vicini utilizzando funzioni asincrone.*/
         React.useCallback(() => {
             if (location != null && user.sid != null) {
 
-                //Async oggetti
+                //Async oggetti // Carica gli oggetti vicini
                 (async () => {
                     let data = await NearListRepo.loadNearList(user.sid, location.coords.latitude, location.coords.longitude);
                     setNearList(data);

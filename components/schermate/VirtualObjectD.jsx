@@ -10,6 +10,7 @@ import * as NearListRepo from "../RepoAssist/NearListRepo.jsx";
 
 import CommunicationController from '../../CommunicationController.jsx';
 
+//x non interagire con un oggetto dalla nearlist 
 export default function VirtualObject({ route }) {
     const { user } = useContext(UserContext);
     const [object, setObject] = useState(null);
@@ -108,7 +109,7 @@ function ObjectAction(props) {
         return (
             <View>
                 <Text style={objscreen.objdesc}>{text}</Text>
-                <Text>Questo oggetto è troppo lontano. Avvicinati per attivaarlo</Text>
+                <Text>Questo oggetto è troppo lontano. Avvicinati per attivarlo</Text>
             </View>
         );
     } else {

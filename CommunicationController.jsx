@@ -89,7 +89,7 @@ export default class CommunicationController {
     }
 
     static async activateObject(sid, id) {
-        const endPoint = "objects/"+id+"/activate";	
+        const endPoint = "objects/"+id+"/activate3";	
         const verb = 'POST';
         const queryParams = {};
         const bodyParams = {sid: sid};
@@ -97,12 +97,21 @@ export default class CommunicationController {
     }
     
     static async getObjects(sid, lat, lon) {
-        const endPoint = "objects/";
+        const endPoint = "objects2/";
         const verb = 'GET';
         const queryParams = { sid: sid, lat: lat, lon: lon };
         const bodyParams = {};
         return await CommunicationController.genericRequest(endPoint, verb, queryParams, bodyParams);
     }
+
+    static async getCollection(sid) {
+        const endPoint = "collection/";
+        const verb = 'GET';
+        const queryParams = { sid: sid };
+        const bodyParams = {};
+        return await CommunicationController.genericRequest(endPoint, verb, queryParams, bodyParams);
+    }
+
     /*esame febbraio - collected
     static async getCollection(sid) {
         const endPoint = "collection/";

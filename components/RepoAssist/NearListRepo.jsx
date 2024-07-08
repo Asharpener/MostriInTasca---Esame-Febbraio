@@ -89,6 +89,17 @@ export async function loadVObjDetails(sid, vobjInfo) {
         }
     } else {
         // if yes, return the object
+        if (vobjInfo.collected == true) {
+            let obj = await storageManager.toggleCollected(id)
+                .catch((error) => {
+                    console.log("No object id found for " + id + " - " + error);
+                });
+            let object = await storageManager.getObjectByID(vobjInfo.id)
+                .catch((error) => {
+                    console.log("No object id found for " + vobjInfo.id + " - " + error);
+                });
+            return object[0];
+        }
         return object[0];
     }
 }

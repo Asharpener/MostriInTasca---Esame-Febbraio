@@ -31,7 +31,8 @@ export default function VirtualObject({ route }) {
                     console.log("ciao" + user.sid, userData?.amulet)
                     if (userData && userData.amulet != null) {
                         let thisobj = await VObj.loadVObjDetails(user.sid, userData.amulet);
-                        setPlayableDistance(100+thisobj?.level)
+
+                        setPlayableDistance(100 + thisobj?.level)
                     } else {
                         setPlayableDistance(100)
                     }
@@ -81,13 +82,16 @@ function ObjectAction(props) {
         case "monster":
             text = "Combatti contro questo mostro per ottenere punti esperienza. Potresti perdere fino a " + obj.level * 2 + " punti vita";
             btn = "Combatti!";
+
             event = () => {
                 (async () => {
                     let action = await activation(user.sid, obj.id);
                     console.log(action.died);
+
                     if (action == false) {
+                        console.log("Errore sono qui");
                         alertMex = "Errore";
-                        alertText = "Si è verificato un errore. Verifica la tua connessione";
+                        alertText = "Non puoi combattere questo mostro";
                     } else {
                         if (action.died) {
                             alertMex = "Hai perso!";
@@ -242,7 +246,7 @@ function ObjectAction(props) {
 
     }
 
-    //se la distanza è maggiore di 100 metri, disabilita il bottone
+
     if (getDistanceInMeters(location.coords.latitude, location.coords.longitude, props.item.lat, props.item.lon) > props.playableDistance) {
         return (
             <View>
@@ -250,16 +254,15 @@ function ObjectAction(props) {
                 <Text>Questo oggetto è troppo lontano. Avvicinati per attivaarlo</Text>
             </View>
         );
-    } /* esame febbraio - collected
-    else if (obj.activated) {
+    } else if (obj.collected == "true") { /* esame febbraio - collected */ //non funziona perchè stiamo usando la chiamata in cui non è presente questa informazione
+        console.log("Il mostro " + obj.name + " con id " + obj.id + " è stato sconfitto in precedenza --");
         return (
             <View>
                 <Text style={objscreen.objdesc}>{text}</Text>
                 <Text>Questo mostro è già stato sconfitto</Text>
             </View>
         );
-    } */
-        else {
+    } else {
         return (
             <View>
                 <Text style={objscreen.objdesc}>{text}</Text>
@@ -282,6 +285,7 @@ async function loadUserDetails(user) {
 
     return response;
 }
+
 
 async function activation(sid, id) {
     let response = await CommunicationController.activateObject(sid, id)

@@ -22,13 +22,15 @@ export function NearListRow(props) {
                 console.log("NearListElement - " + item.id);
                 let thisobj = await NearListRepo.loadVObjDetails(user.sid, item)
                 console.log("NearListElement - " + thisobj.name);
-                /*esame febbraio - collected
-                if (thisobj.collected == true) {
-                    console.log("Il	mostro "+ thisobj.name + " con	id " + thisobj.id + "è	stato	sconfitto	in	precedenza");
-                } else {
-                    console.log("Il	mostro "+ thisobj.name + " con	id " + thisobj.id + "non è mai	stato	sconfitto	in	precedenza"); 
+                //esame febbraio - collected
+                if (thisobj.type == "monster") {
+                    if (thisobj.collected == true) {
+                        console.log("Il	mostro " + thisobj.name + " con	id " + thisobj.id + "è	stato	sconfitto	in	precedenza");
+                    } else {
+                        console.log("Il	mostro " + thisobj.name + " con	id " + thisobj.id + "non è mai	stato	sconfitto	in	precedenza");
+                    }
                 }
-                */
+
                 setObject(thisobj);
             })();
         }, [user])
@@ -51,7 +53,7 @@ export function NearListRow(props) {
                         <ObjectInfo obj={object}></ObjectInfo>
                     )}
                 </View>
-                
+
             </View>
         </TouchableOpacity>
     );
